@@ -192,4 +192,7 @@ class Program
 
     static void ListLoansAll() => ActionMsg("Listar préstamos");
 
+    // ===== REPORTES =====
+    static void ShowSearchReportsMenu() => ActionMsg("Búsquedas y reportes");
+
 }
