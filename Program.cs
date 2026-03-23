@@ -54,4 +54,62 @@ class Program
           
         }   
     } 
+    
+    // ===== LIBROS =====
+    static void ShowBooksMenu()
+    {
+        bool back = false;
+
+        while (!back)
+        {
+            Console.Clear();
+            Console.WriteLine("=== LIBROS ===");
+            Console.WriteLine("1. Registrar");
+            Console.WriteLine("2. Listar");
+            Console.WriteLine("3. Ver detalle");
+            Console.WriteLine("4. Actualizar");
+            Console.WriteLine("5. Eliminar");
+            Console.WriteLine("0. Volver");
+
+            switch (GetOption())
+            {
+                case "1": RegisterBook(); break;
+                case "2": ListBooksMenu(); break;
+                case "3": ViewBookDetail(); break;
+                case "4": UpdateBookMenu(); break;
+                case "5": DeleteBook(); break;
+                case "0": back = true; break;
+            }
+        }
+    }
+    static void RegisterBook() => ActionMsg("Registrar libro");
+    static void DeleteBook() => ActionMsg("No eliminar si está prestado");
+
+    static void ListBooksMenu()
+    {
+        Console.WriteLine("\n1. Todos\n2. Disponibles\n3. Prestados\n0. Volver");
+        switch (GetOption())
+        {
+            case "1": ListBooksAll(); break;
+            case "2": ListBooksAvailable(); break;
+            case "3": ListBooksBorrowed(); break;
+        }
+    }
+
+    static void ListBooksAll() => ActionMsg("Listar todos");
+    static void ListBooksAvailable() => ActionMsg("Listar disponibles");
+    static void ListBooksBorrowed() => ActionMsg("Listar prestados");
+    static void ViewBookDetail() => ActionMsg("Ver detalle por ID");
+
+    static void UpdateBookMenu()
+    {
+        Console.WriteLine("\n1. Editar título\n2. Editar autor\n3. Editar año/categoría\n0. Volver");
+        switch (GetOption())
+        {
+            case "1": ActionMsg("Editar título"); break;
+            case "2": ActionMsg("Editar autor"); break;
+            case "3": ActionMsg("Editar año/categoría"); break;
+        }
+    }
+
 }
