@@ -1,7 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using system_books.Models;
 
 class Program
 {
+    static List<Libro> libros = new List<Libro>();
+static List<Usuario> usuarios = new List<Usuario>();
+static List<Prestamo> prestamos = new List<Prestamo>();
+
+static int libroId = 1;
+static int usuarioId = 1;
+static int prestamoId = 1;
     static void Main()
     {
         ShowMainMenu();
@@ -32,6 +41,8 @@ class Program
         while (!exit)
         {
             Console.Clear();
+
+           
             Console.WriteLine("===== SISTEMA BIBLIOTECA =====");
             Console.WriteLine("1. Libros");
             Console.WriteLine("2. Usuarios");
@@ -49,13 +60,10 @@ class Program
                 case "5": ShowPersistenceMenu(); break;
                 case "6": exit = ConfirmExit(); break;
                 default: ActionMsg("Opción inválida"); break;
-            }
+           }
+        }
+    }
 
-          
-        }   
-    } 
-    
-    // ===== LIBROS =====
     static void ShowBooksMenu()
     {
         bool back = false;
@@ -82,7 +90,32 @@ class Program
             }
         }
     }
-    static void RegisterBook() => ActionMsg("Registrar libro");
+
+    static void RegisterBook()
+{
+    Console.Write("Título: ");
+    string titulo = Console.ReadLine();
+
+    Console.Write("Autor: ");
+    string autor = Console.ReadLine();
+
+    Console.Write("Año: ");
+    int año;
+    while (!int.TryParse(Console.ReadLine(), out año))
+    {
+        Console.Write("Ingrese un año válido: ");
+    }
+
+    Console.Write("Categoría: ");
+    string categoria = Console.ReadLine();
+
+    Libro libro = new Libro(libroId++, titulo, autor, año, categoria);
+
+    libros.Add(libro);
+
+    ActionMsg("Libro registrado correctamente");
+}
+
     static void DeleteBook() => ActionMsg("No eliminar si está prestado");
 
     static void ListBooksMenu()
@@ -96,10 +129,46 @@ class Program
         }
     }
 
-    static void ListBooksAll() => ActionMsg("Listar todos");
+    static void ListBooksAll()
+{
+    Console.WriteLine("\n=== LISTA DE LIBROS ===");
+
+    if (libros.Count == 0)
+    {
+        Console.WriteLine("No hay libros registrados");
+    }
+    else
+    {
+        foreach (var libro in libros)
+        {
+            Console.WriteLine(libro.ResumenCorto());
+        }
+    }
+
+    Pause();
+}
+
     static void ListBooksAvailable() => ActionMsg("Listar disponibles");
     static void ListBooksBorrowed() => ActionMsg("Listar prestados");
-    static void ViewBookDetail() => ActionMsg("Ver detalle por ID");
+    static void ViewBookDetail()
+{
+    Console.Write("Ingrese ID del libro: ");
+    int id;
+
+    while (!int.TryParse(Console.ReadLine(), out id))
+    {
+        Console.Write("Ingrese un ID válido: ");
+    }
+
+    var libro = libros.Find(l => l.Id == id);
+
+    if (libro != null)
+        Console.WriteLine(libro.DetalleCompleto());
+    else
+        Console.WriteLine("Libro no encontrado");
+
+    Pause();
+}
 
     static void UpdateBookMenu()
     {
@@ -111,8 +180,6 @@ class Program
             case "3": ActionMsg("Editar año/categoría"); break;
         }
     }
-
-// ===== USUARIOS =====
     static void ShowUsersMenu()
     {
         bool back = false;
@@ -135,9 +202,60 @@ class Program
         }
     }
 
-    static void RegisterUser() => ActionMsg("Registrar usuario");
-    static void ListUsers() => ActionMsg("Listar usuarios");
-    static void ViewUserDetail() => ActionMsg("Detalle usuario");
+    static void RegisterUser()
+{
+    Console.Write("Nombre: ");
+    string nombre = Console.ReadLine();
+
+    Console.Write("Contacto: ");
+    string contacto = Console.ReadLine();
+
+    Usuario usuario = new Usuario(usuarioId++, nombre, contacto);
+
+    usuarios.Add(usuario);
+
+    ActionMsg("Usuario registrado correctamente");
+}
+
+    static void ListUsers()
+{
+    Console.WriteLine("\n=== LISTA DE USUARIOS ===");
+
+    if (usuarios.Count == 0)
+    {
+        Console.WriteLine("No hay usuarios registrados");
+    }
+    else
+    {
+        foreach (var u in usuarios)
+        {
+            Console.WriteLine(u.ResumenCorto());
+        }
+    }
+
+    Pause();
+}
+
+    static void ViewUserDetail()
+{
+    Console.Write("Ingrese ID del usuario: ");
+    int id;
+
+    while (!int.TryParse(Console.ReadLine(), out id))
+    {
+        Console.Write("Ingrese un ID válido: ");
+    }
+
+    var usuario = usuarios.Find(u => u.Id == id);
+
+    if (usuario != null)
+        Console.WriteLine(usuario.ResumenCorto());
+    else
+        Console.WriteLine("Usuario no encontrado");
+
+    Pause();
+}
+
     static void DeleteUser() => ActionMsg("No eliminar si tiene préstamos");
 
     static void UpdateUserMenu()
@@ -150,9 +268,7 @@ class Program
             case "3": ActionMsg("Cambiar estado"); break;
         }
     }
-
-    // ===== PRÉSTAMOS =====
-    static void ShowLoansMenu()
+static void ShowLoansMenu()
     {
         bool back = false;
 
@@ -174,9 +290,87 @@ class Program
         }
     }
 
-    static void CreateLoan() => ActionMsg("Validar usuario y disponibilidad");
+    static void CreateLoan()
+{
+    Console.Write("ID Usuario: ");
+    int userId;
+    while (!int.TryParse(Console.ReadLine(), out userId))
+    {
+        Console.Write("Ingrese un ID válido: ");
+    }
+
+    Console.Write("ID Libro: ");
+    int bookId;
+    while (!int.TryParse(Console.ReadLine(), out bookId))
+    {
+        Console.Write("Ingrese un ID válido: ");
+    }
+
+    var usuario = usuarios.Find(u => u.Id == userId);
+    var libro = libros.Find(l => l.Id == bookId);
+
+    if (usuario == null)
+    {
+        ActionMsg("Usuario no existe");
+        return;
+    }
+
+    if (!usuario.Activo)
+    {
+        ActionMsg("Usuario inactivo");
+        return;
+    }
+
+    if (libro == null)
+    {
+        ActionMsg("Libro no existe");
+        return;
+    }
+
+    if (!libro.Disponible)
+    {
+        ActionMsg("Libro no disponible");
+        return;
+    }
+
+    Prestamo prestamo = new Prestamo(prestamoId++, bookId, userId);
+
+    prestamos.Add(prestamo);
+
+    libro.Disponible = false;
+
+    ActionMsg("Préstamo creado correctamente");
+}
     static void ViewLoanDetail() => ActionMsg("Detalle préstamo");
-    static void RegisterReturn() => ActionMsg("Registrar devolución");
+    static void RegisterReturn()
+{
+    Console.Write("ID Préstamo: ");
+    int id;
+
+    while (!int.TryParse(Console.ReadLine(), out id))
+    {
+        Console.Write("Ingrese un ID válido: ");
+    }
+
+    var prestamo = prestamos.Find(p => p.Id == id);
+
+    if (prestamo == null)
+    {
+        ActionMsg("Préstamo no encontrado");
+        return;
+    }
+
+    prestamo.FechaDevolucion = DateTime.Now;
+    prestamo.Estado = EstadoPrestamo.Devuelto;
+
+    var libro = libros.Find(l => l.Id == prestamo.LibroId);
+
+    if (libro != null)
+        libro.Disponible = true;
+
+    ActionMsg("Devolución realizada correctamente");
+}
+
     static void DeleteLoan() => ActionMsg("Reglas de eliminación");
 
     static void ListLoansMenu()
@@ -190,15 +384,29 @@ class Program
         }
     }
 
-    static void ListLoansAll() => ActionMsg("Listar préstamos");
+    static void ListLoansAll()
+{
+    Console.WriteLine("\n=== LISTA DE PRÉSTAMOS ===");
 
-    // ===== REPORTES =====
-    static void ShowSearchReportsMenu() => ActionMsg("Búsquedas y reportes");
+    if (prestamos.Count == 0)
+    {
+        Console.WriteLine("No hay préstamos");
+    }
+    else
+    {
+        foreach (var p in prestamos)
+        {
+            Console.WriteLine(p.ResumenCorto());
+        }
+    }
 
-// ===== DATOS =====
-    static void ShowPersistenceMenu() => ActionMsg("Guardar / cargar datos");
+    Pause();
+}
 
-    // ===== SALIDA =====
+static void ShowSearchReportsMenu() => ActionMsg("Búsquedas y reportes");
+
+static void ShowPersistenceMenu() => ActionMsg("Guardar / cargar datos");
+
     static bool ConfirmExit()
     {
         Console.Write("¿Guardar antes de salir? (S/N): ");
@@ -211,3 +419,4 @@ class Program
     }
 
 }
+
