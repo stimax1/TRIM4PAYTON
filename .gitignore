@@ -1,0 +1,483 @@
+# Creado por https://www.toptal.com/developers/gitignore/api/visualstudiocode,macos,windows,linux,csharp
+# Editar en https://www.toptal.com/developers/gitignore?templates=visualstudiocode,macos,windows,linux,csharp
+
+### C sostenido ###
+## Ignorar los archivos temporales de Visual Studio, los resultados de compilaci�n y
+## archivos generados por complementos populares de Visual Studio.
+##
+## Obtenga la �ltima versi�n en https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
+
+# Archivos espec�ficos del usuario
+*.rsuser
+*.suo
+*.usuario
+*.userosscache
+*.sln.docstates
+
+# Archivos espec�ficos del usuario (MonoDevelop/Xamarin Studio)
+*.preferencias de usuario
+
+# Archivos mono generados autom�ticamente
+mono_crash.*
+
+# Resultados de la compilaci�n
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]liberaci�n/
+[Rr]libera/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+edificio/
+[Bb]en/
+[Oo]bj/
+[Ll]og/
+[L]ogs/
+
+# Directorio de cach�/opciones de Visual Studio 2015/2017
+.vs/
+# Descomente si tiene tareas que crean los archivos est�ticos del proyecto en wwwroot
+#wwwroot/
+
+# Archivos generados autom�ticamente por Visual Studio 2017
+Archivos generados/
+
+# Resultados de la prueba MSTest
+[Tt]est[Rr]esultado*/
+[Bb]uild[Ll]og.*
+
+#NUnit
+*.VisualState.xml
+Resultado de la prueba.xml
+nunit-*.xml
+
+# Resultados de la construcci�n de un proyecto ATL
+[Dd]ebugPS/
+[Rr]liberaci�nPS/
+dlldata.c
+
+# Resultados de referencia
+BenchmarkDotNet.Artefactos/
+
+# .NET Core
+proyecto.lock.json
+proyecto.fragmento.bloqueo.json
+artefactos/
+
+# Andamiaje ASP.NET
+AndamiajeReadMe.txt
+
+#StyleCop
+Informe StyleCop.xml
+
+# Archivos creados por Visual Studio
+*_i.c
+*_ordenador personal
+*_S.S
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.registro
+*.tlog
+*.vspscc
+*.vssscc
+.construcciones
+*.pidb
+*.svclog
+*.scc
+
+# Archivos de prueba de Chutzpah
+_Descaro*
+
+# Archivos de cach� de Visual C++
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.archivo de cach�
+*.VC.db
+*.VC.VC.opendb
+
+# Generador de perfiles de Visual Studio
+*.psess
+*.vsp
+*.vspx
+*.savia
+
+# Archivos de seguimiento de Visual Studio
+*.e2e
+
+# Espacio de trabajo local de TFS 2012
+$tf/
+
+# Kit de herramientas de automatizaci�n de orientaci�n
+*.gpState
+
+# ReSharper es un complemento de codificaci�n .NET
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.usuario
+
+# TeamCity es un complemento de compilaci�n
+_EquipoCiudad*
+
+# DotCover es una herramienta de cobertura de c�digo
+*.dotCover
+
+# AxoCover es una herramienta de cobertura de c�digo
+.axoCover/*
+!.axoCover/configuraciones.json
+
+# Coverlet es una herramienta de cobertura de c�digo gratuita y multiplataforma
+cobertura*.json
+cobertura*.xml
+cobertura*.info
+
+# Resultados de cobertura de c�digo de Visual Studio
+*.cobertura
+*.coberturaxml
+
+#NCrunch
+_NCrunch_*
+.*crunch*.local.xml
+nCrunchTemp_*
+
+# PoderosoAlce
+*.mm.*
+AutoTest.Net/
+
+# Banco de trabajo web (sass)
+.sass-cache/
+
+# Carpeta de salida de Installshield
+[Ee]xpress/
+
+# DocProject es un complemento generador de documentaci�n
+DocProject/buildhelp/
+DocProject/Ayuda/*.HxT
+DocProject/Ayuda/*.HxC
+DocProject/Ayuda/*.hhc
+DocProject/Ayuda/*.hhk
+DocProject/Ayuda/*.hhp
+DocProject/Ayuda/Html2
+DocProject/Ayuda/html
+
+# Directorio de un solo clic
+publicar/
+
+# Publicar salida web
+*.[Pp]publicar.xml
+*.azurePubxml
+# Nota: Comente la siguiente l�nea si desea verificar su configuraci�n de implementaci�n web.
+# pero las cadenas de conexi�n de la base de datos (con posibles contrase�as) no estar�n cifradas
+*.pubxml
+*.publicarproyecto
+
+# Configuraci�n de publicaci�n de la aplicaci�n web de Microsoft Azure. Comente la siguiente l�nea si lo desea.
+# verifica la configuraci�n de publicaci�n de su aplicaci�n web de Azure, pero contiene informaci�n confidencial
+# en estos scripts no estar�n cifrados
+Publicar scripts/
+
+# Paquetes NuGet
+*.nupkg
+# Paquetes de s�mbolos NuGet
+*.snupkg
+# La carpeta de paquetes se puede ignorar debido a la Restauraci�n de paquetes
+**/[Pp]paquetes/*
+# excepto build/, que se utiliza como un destino de MSBuild.
+!**/[Pp]paquetes/compilaci�n/
+# Descomente si es necesario, pero generalmente se regenerar� cuando sea necesario.
+#!**/[Pp]paquetes/repositorios.config
+# Los archivos project.json de NuGet v3 producen m�s archivos que se pueden ignorar
+*.nuget.props
+*.nuget.objetivos
+
+# Salida de compilaci�n de Microsoft Azure
+csx/
+*.build.csdef
+
+# Emulador de Microsoft Azure
+ecf/
+rcf/
+
+# Directorios y archivos de paquetes de aplicaciones de la Tienda Windows
+Paquetes de aplicaciones/
+Artefactos del paquete/
+Paquete.StoreAssociation.xml
+_pkginfo.txt
+*.appx
+*.appxbundle
+*.appxupload
+
+# Archivos de cach� de Visual Studio
+# Los archivos que terminan en .cache se pueden ignorar
+*.[Cc]dolor
+# pero mantenga un registro de los directorios que terminan en .cache
+!?*.[Cc]dolor/
+
+# Otros
+ClientBin/
+~$*
+*~
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+*.pfx
+*.configuraciones de publicaci�n
+orleans.codegen.cs
+
+# Incluir archivos con nombres seguros puede representar un riesgo de seguridad
+# (https://github.com/github/gitignore/pull/2483#issue-259490424)
+#*.snk
+
+# Dado que hay varios flujos de trabajo, descomente la siguiente l�nea para ignorar bower_components
+# (https://github.com/github/gitignore/pull/1529#issuecomment-104372622)
+#componentes_de_bower/
+
+# Proyectos RIA/Silverlight
+C�digo generado/
+
+# Archivos de copia de seguridad e informes de la conversi�n de un archivo de proyecto antiguo
+# a una versi�n m�s reciente de Visual Studio. No se necesitan copias de seguridad.
+# porque tenemos git ;-)
+_Archivos de informe de actualizaci�n/
+Respaldo*/
+Registro de actualizaci�n*.XML
+Registro de actualizaci�n*.htm
+ServicioFabricBackup/
+*.rptproj.bak
+
+# Archivos de SQL Server
+*.mdf
+*.ldf
+*.ndf
+
+# Proyectos de Inteligencia de Negocios
+*.rdl.datos
+*.bim.layout
+*.bim_*.configuraciones
+*.rptproj.rsuser
+*- [Bb]ackup.rdl
+*- [Bb]ackup ([0-9]).rdl
+*- [Bb]ackup ([0-9][0-9]).rdl
+
+# Microsoft Fakes
+Asambleas Falsas/
+
+# Archivo de configuraci�n del complemento GhostDoc
+*.GhostDoc.xml
+
+# Herramientas de Node.js para Visual Studio
+.ntvs_analysis.dat
+m�dulos_de_nodo/
+
+# Registro de compilaci�n de Visual Studio 6
+*.plg
+
+# Archivo de opciones del espacio de trabajo de Visual Studio 6
+*.optar
+
+# Archivo de espacio de trabajo generado autom�ticamente de Visual Studio 6 (contiene qu� archivos estaban abiertos, etc.)
+*.vbw
+
+# Archivo de proyecto generado autom�ticamente de Visual Studio 6 (contiene qu� archivos se abrieron, etc.)
+*.vbp
+
+# Espacio de trabajo y archivo de proyecto de Visual Studio 6 (archivos de proyecto de trabajo que contienen archivos para incluir en el proyecto)
+*.dsw
+*.dsp
+
+# Archivos t�cnicos de Visual Studio 6
+
+# Salida de compilaci�n de Visual Studio LightSwitch
+**/*.HTMLClient/Artefactos generados
+**/*.DesktopClient/Artefactos generados
+**/*.DesktopClient/ModelManifest.xml
+**/*.Servidor/ArtefactosGenerados
+**/*.Servidor/ModelManifest.xml
+Extensiones privadas
+
+# Administrador de dependencias de paquetes
+.paket/paket.exe
+paquetes-archivos/
+
+# FALSO - F# Hacer
+.falso/
+
+# Configuraci�n personal de CodeRush
+.cr/personal
+
+# Herramientas de Python para Visual Studio (PTVS)
+__pycache__/
+*.pyc
+
+# Pastel - Descomente si lo est� usando
+# herramientas/**
+# !tools/paquetes.config
+
+# Estudio de pesta�as
+*.tss
+
+# Archivo de configuraci�n JustMock de Telerik
+*.jmconfig
+
+# Salida de la compilaci�n de BizTalk
+*.btp.cs
+*.btm.cs
+*.odx.cs
+*.xsd.cs
+
+# Resultados del an�lisis de la interfaz de usuario de OpenCover
+OpenCover/
+
+# Salida de ejecuci�n local de Azure Stream Analytics
+ASALocalRun/
+
+# Registro binario y estructurado de MSBuild
+*.binlog
+
+# Archivo de configuraci�n del depurador de GPU NVidia Nsight
+*.nvuser
+
+# Carpeta de trabajo de MFractors (herramienta de productividad de Xamarin)
+.mfractor/
+
+# Historial local para Visual Studio
+.historia local/
+
+# Archivos de historial de Visual Studio (VSHistory)
+.vshistory/
+
+# Base de datos temporal de comprobaci�n de estado de BeatPulse
+base de datos de comprobaciones de salud
+
+# Carpeta de respaldo para la herramienta Convertir referencia de paquete en Visual Studio 2017
+Copia de seguridad de migraci�n/
+
+# Carpeta de trabajo de Ionide (herramientas multiplataforma de F# VS Code)
+.ionuro/
+
+# Fody - esquema XML generado autom�ticamente
+FodyWeavers.xsd
+
+# Archivos de VS Code para quienes trabajan con m�ltiples herramientas
+.vscode/*
+!.vscode/configuraciones.json
+!.vscode/tareas.json
+!.vscode/launch.json
+!.vscode/extensiones.json
+*.c�digo-espacio de trabajo
+
+# Historial local para Visual Studio Code
+.historia/
+
+# Archivos de Windows Installer de las salidas de compilaci�n
+*.taxi
+*.msi
+*.msix
+*.msm
+*.msp
+
+# JetBrains Rider
+*.sln.iml
+
+### Linux ###
+
+# archivos temporales que se pueden crear si un proceso a�n tiene abierto el identificador de un archivo eliminado
+.fuse_hidden*
+
+# Preferencias del directorio de KDE
+.directorio
+
+# Carpeta de basura de Linux que puede aparecer en cualquier partici�n o disco
+.Basura-*
+
+Los archivos .nfs se crean cuando se elimina un archivo abierto pero a�n se accede a �l
+.nfs*
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# El icono debe terminar con dos \r
+Icono
+
+
+# Miniaturas
+._*
+
+# Archivos que pueden aparecer en la ra�z de un volumen
+.Revisiones de documentos-V100
+.fseventsd
+.Spotlight-V100
+.Elementos temporales
+.Basuras
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directorios potencialmente creados en un recurso compartido AFP remoto
+.AppleDB
+.AppleEscritorio
+Carpeta de basura de red
+Art�culos temporales
+.apdisk
+
+### Parche para macOS ###
+# Archivos generados por iCloud
+*.icloud
+
+### C�digo de VisualStudio ###
+!.vscode/*.fragmentos-de-c�digo
+
+# Historial local para Visual Studio Code
+
+# Extensiones de Visual Studio Code creadas
+*.vsix
+
+### Parche de VisualStudioCode ###
+# Ignorar todo el historial local de archivos
+.historia
+.ionuro
+
+### Ventanas ###
+# Archivos de cach� de miniaturas de Windows
+Thumbs.db
+Thumbs.db:cifrable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Archivo de volcado
+*.stackdump
+
+# Archivo de configuraci�n de carpeta
+[Dd]esktop.ini
+
+# Papelera de reciclaje utilizada en recursos compartidos de archivos
+$RECICLAJE.PAPELERA/
+
+# Archivos del instalador de Windows
+
+# Atajos de Windows
+*.lnk
+
+# Fin de https://www.toptal.com/developers/gitignore/api/visualstudiocode,macos,windows,linux,csharp
