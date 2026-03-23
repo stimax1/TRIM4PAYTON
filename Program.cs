@@ -112,4 +112,44 @@ class Program
         }
     }
 
+// ===== USUARIOS =====
+    static void ShowUsersMenu()
+    {
+        bool back = false;
+
+        while (!back)
+        {
+            Console.Clear();
+            Console.WriteLine("=== USUARIOS ===");
+            Console.WriteLine("1. Registrar\n2. Listar\n3. Detalle\n4. Actualizar\n5. Eliminar\n0. Volver");
+
+            switch (GetOption())
+            {
+                case "1": RegisterUser(); break;
+                case "2": ListUsers(); break;
+                case "3": ViewUserDetail(); break;
+                case "4": UpdateUserMenu(); break;
+                case "5": DeleteUser(); break;
+                case "0": back = true; break;
+            }
+        }
+    }
+
+    static void RegisterUser() => ActionMsg("Registrar usuario");
+    static void ListUsers() => ActionMsg("Listar usuarios");
+    static void ViewUserDetail() => ActionMsg("Detalle usuario");
+    static void DeleteUser() => ActionMsg("No eliminar si tiene préstamos");
+
+    static void UpdateUserMenu()
+    {
+        Console.WriteLine("\n1. Editar nombre\n2. Editar contacto\n3. Activar/Desactivar\n0. Volver");
+        switch (GetOption())
+        {
+            case "1": ActionMsg("Editar nombre"); break;
+            case "2": ActionMsg("Editar contacto"); break;
+            case "3": ActionMsg("Cambiar estado"); break;
+        }
+    }
+
+
 }
