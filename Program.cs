@@ -151,5 +151,45 @@ class Program
         }
     }
 
+    // ===== PRÉSTAMOS =====
+    static void ShowLoansMenu()
+    {
+        bool back = false;
+
+        while (!back)
+        {
+            Console.Clear();
+            Console.WriteLine("=== PRÉSTAMOS ===");
+            Console.WriteLine("1. Crear\n2. Listar\n3. Ver detalle\n4. Devolver\n5. Eliminar\n0. Volver");
+
+            switch (GetOption())
+            {
+                case "1": CreateLoan(); break;
+                case "2": ListLoansMenu(); break;
+                case "3": ViewLoanDetail(); break;
+                case "4": RegisterReturn(); break;
+                case "5": DeleteLoan(); break;
+                case "0": back = true; break;
+            }
+        }
+    }
+
+    static void CreateLoan() => ActionMsg("Validar usuario y disponibilidad");
+    static void ViewLoanDetail() => ActionMsg("Detalle préstamo");
+    static void RegisterReturn() => ActionMsg("Registrar devolución");
+    static void DeleteLoan() => ActionMsg("Reglas de eliminación");
+
+    static void ListLoansMenu()
+    {
+        Console.WriteLine("\n1. Todos\n2. Activos\n3. Cerrados\n0. Volver");
+        switch (GetOption())
+        {
+            case "1": ListLoansAll(); break;
+            case "2": ActionMsg("Listar activos"); break;
+            case "3": ActionMsg("Listar cerrados"); break;
+        }
+    }
+
+    static void ListLoansAll() => ActionMsg("Listar préstamos");
 
 }
