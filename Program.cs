@@ -195,4 +195,7 @@ class Program
     // ===== REPORTES =====
     static void ShowSearchReportsMenu() => ActionMsg("Búsquedas y reportes");
 
+// ===== DATOS =====
+    static void ShowPersistenceMenu() => ActionMsg("Guardar / cargar datos");
+
 }
