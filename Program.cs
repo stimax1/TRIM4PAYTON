@@ -198,4 +198,16 @@ class Program
 // ===== DATOS =====
     static void ShowPersistenceMenu() => ActionMsg("Guardar / cargar datos");
 
+    // ===== SALIDA =====
+    static bool ConfirmExit()
+    {
+        Console.Write("¿Guardar antes de salir? (S/N): ");
+        string r = Console.ReadLine().ToUpper();
+
+        if (r == "S")
+            ActionMsg("Guardando datos...");
+
+        return true;
+    }
+
 }
